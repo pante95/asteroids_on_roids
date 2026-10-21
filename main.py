@@ -49,6 +49,15 @@ def main():
             else:
                 pass
 
+        for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.collides_with(shot):
+                    log_event("asteroid_shot")
+                    shot.kill()
+                    asteroid.split()
+                else:
+                    pass
+
         screen.fill("black")
         for unit in drawable:
             unit.draw(screen)
